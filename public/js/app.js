@@ -6471,6 +6471,25 @@ exports.push([module.i, "  \r\n.login{\r\n    background: rgb(104, 169, 255);\r\
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/pages/common/news/news.css":
+/*!********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/pages/common/news/news.css ***!
+  \********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/layouts/AdminLayout/admin_layout.css":
 /*!*******************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/layouts/AdminLayout/admin_layout.css ***!
@@ -6503,6 +6522,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/layouts/CommonLayout/common_layout.css":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/layouts/CommonLayout/common_layout.css ***!
+  \*********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".common{\r\n    background: rgb(208, 255, 212);\r\n}", ""]);
 
 // exports
 
@@ -76088,6 +76126,17 @@ function (_Component) {
 
 
 if (document.getElementById('app')) {
+  var meta = {
+    title: 'Some Meta Title',
+    description: 'I am a description, and I can create multiple tags',
+    canonical: 'http://example.com/path/to/page',
+    meta: {
+      charset: 'utf-8',
+      name: {
+        keywords: 'react,meta,document,html,tags'
+      }
+    }
+  };
   var store = Object(redux__WEBPACK_IMPORTED_MODULE_7__["createStore"])(_store_reducers_mainReducer__WEBPACK_IMPORTED_MODULE_5__["default"], Object(redux__WEBPACK_IMPORTED_MODULE_7__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_6__["default"]));
   var app = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_8__["Provider"], {
     store: store
@@ -76305,6 +76354,127 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/common/news/NewsList.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/pages/common/news/NewsList.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _news_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./news.css */ "./resources/js/components/pages/common/news/news.css");
+/* harmony import */ var _news_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_news_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+ //import {AuthActionCreator} from '../../../store/actions/authActionCreator'
+
+var NewsList =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(NewsList, _Component);
+
+  function NewsList() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, NewsList);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(NewsList)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      email: 'a@a.ua',
+      password: '123456'
+    });
+
+    return _this;
+  }
+
+  _createClass(NewsList, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.title = this.props.title;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "News List"));
+    }
+  }]);
+
+  return NewsList;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); // function mapDispatchtoProps(dispatch){
+//     return {
+//         login: (email, password) => dispatch(AuthActionCreator.login(email, password))
+//     }
+// }
+//export default connect(null, mapDispatchtoProps)(NewsList);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])()(NewsList));
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/common/news/news.css":
+/*!************************************************************!*\
+  !*** ./resources/js/components/pages/common/news/news.css ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/postcss-loader/src??ref--6-2!./news.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/pages/common/news/news.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/global/history.js":
 /*!****************************************!*\
   !*** ./resources/js/global/history.js ***!
@@ -76446,6 +76616,63 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./resources/js/layouts/CommonLayout/CommonLayout.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/layouts/CommonLayout/CommonLayout.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_layout_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common_layout.css */ "./resources/js/layouts/CommonLayout/common_layout.css");
+/* harmony import */ var _common_layout_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_common_layout_css__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var CommonLayout = function CommonLayout(_ref) {
+  var children = _ref.children;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "common container-fluid"
+  }, children);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CommonLayout);
+
+/***/ }),
+
+/***/ "./resources/js/layouts/CommonLayout/common_layout.css":
+/*!*************************************************************!*\
+  !*** ./resources/js/layouts/CommonLayout/common_layout.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/postcss-loader/src??ref--6-2!./common_layout.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/layouts/CommonLayout/common_layout.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/router/AppRoute.js":
 /*!*****************************************!*\
   !*** ./resources/js/router/AppRoute.js ***!
@@ -76474,7 +76701,9 @@ var AppRoute = function AppRoute(_ref) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_1__["Route"], _extends({}, rest, {
     render: function render(props) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Layout, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Layout, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, _extends({}, props, {
+        title: rest.title
+      })));
     }
   }));
 };
@@ -76499,7 +76728,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AppRoute__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppRoute */ "./resources/js/router/AppRoute.js");
 /* harmony import */ var _layouts_AuthLayout_AuthLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layouts/AuthLayout/AuthLayout */ "./resources/js/layouts/AuthLayout/AuthLayout.js");
 /* harmony import */ var _layouts_AdminLayout_AdminLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../layouts/AdminLayout/AdminLayout */ "./resources/js/layouts/AdminLayout/AdminLayout.js");
-/* harmony import */ var _components_pages_auth_login_Login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/pages/auth/login/Login */ "./resources/js/components/pages/auth/login/Login.js");
+/* harmony import */ var _layouts_CommonLayout_CommonLayout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../layouts/CommonLayout/CommonLayout */ "./resources/js/layouts/CommonLayout/CommonLayout.js");
+/* harmony import */ var _components_pages_auth_login_Login__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/pages/auth/login/Login */ "./resources/js/components/pages/auth/login/Login.js");
+/* harmony import */ var _components_pages_common_news_NewsList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/pages/common/news/NewsList */ "./resources/js/components/pages/common/news/NewsList.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76523,8 +76754,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- //import Tasks from '../components/dashboard/tasks/tasks'
-//import Test from '../components/dashboard/test/test'
+
+
+
 
 var AppRoutes =
 /*#__PURE__*/
@@ -76543,8 +76775,15 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AppRoute__WEBPACK_IMPORTED_MODULE_2__["default"], {
         path: "/",
         exact: true,
-        component: _components_pages_auth_login_Login__WEBPACK_IMPORTED_MODULE_5__["default"],
-        layout: _layouts_AuthLayout_AuthLayout__WEBPACK_IMPORTED_MODULE_3__["default"]
+        component: _components_pages_common_news_NewsList__WEBPACK_IMPORTED_MODULE_7__["default"],
+        layout: _layouts_CommonLayout_CommonLayout__WEBPACK_IMPORTED_MODULE_5__["default"],
+        title: "News List"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AppRoute__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        path: "/login",
+        exact: true,
+        component: _components_pages_auth_login_Login__WEBPACK_IMPORTED_MODULE_6__["default"],
+        layout: _layouts_AuthLayout_AuthLayout__WEBPACK_IMPORTED_MODULE_3__["default"],
+        title: "Login to system"
       }));
     }
   }]);
