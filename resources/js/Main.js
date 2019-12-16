@@ -2,30 +2,31 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
 import history from './global/history';
+import AppRoutes from './router/Routes';
+import mainReducer from './store/reducers/mainReducer';
+import reduxThunk from 'redux-thunk';
+import {createStore, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
 
 export default class Main extends Component {
     render() {
         return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-header">Hello world! Component</div>
-                            <div className="card-body">Products</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+       
+          <AppRoutes />
+     
         );
     }
 }
 
 if (document.getElementById('app')) {
+    const store = createStore(mainReducer, applyMiddleware(reduxThunk));
     const app = (
-            //<Router history = {history}>
+        <Provider store={store}>
+            <Router history = {history}>
                 <Main />
-           // </Router>
-    );
+            </Router>
+        </Provider>
+        );
 
     ReactDOM.render(app, document.getElementById('app'));
 }
