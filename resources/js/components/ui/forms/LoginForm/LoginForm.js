@@ -8,14 +8,24 @@ class LoginForm extends Component{
     state = {
         controls:{
             email:{
-                type:'email',
+                type:'text',
                 field: 'email',
                 label: 'Email',
                 value: '',
                 errors: [],
-                rules: [rules.required, rules.email]
-            }
-            
+                rules: {required: true, email: true},
+                touched: false
+            },
+            password:{
+                type:'password',
+                field: 'password',
+                label: 'Password',
+                value: '',
+                errors: [],
+                rules: {required: true, min: 3},
+                touched: false
+            },
+
         },
         errors: {
 
@@ -36,30 +46,75 @@ class LoginForm extends Component{
         }
     };
 
-    handleChange = e => {
-        name = e.target.name;
-        value = e.target.value;
-
-        this.setState({
-           // controls.email.value : 
+    handleChange = (e) => {
+        const name = e.target.name;
+        const controls = {...this.state.controls};
+        let field = {...controls[name]};
+        field.value = e.target.value;
+        field = this.handleErrors(field);
+        field.touched = true;
+        controls[name] = field;
+        let isFormValid = this.handleFormIsValid(controls);
+        this.setState(function(){
+            return {controls, isFormValid}
         });
-        //this.setStateByErrors(e.target.name, e.target.value);
-    };
+    }
+
+    handleErrors = (field) => {
+        field.errors = [];
+        //required
+        if(!!field.rules[rules.required])
+        {
+            if(field.value.length == 0)
+                field.errors.push('This field is required! ');
+        }
+        //email
+        if(!!field.rules[rules.email]){
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if(!re.test(field.value.toLowerCase()))
+                field.errors.push('Wrong email address! ');
+        }
+        //min
+        if(!!field.rules[rules.min])
+        {
+            const rule = field.rules[rules.min];
+            if(field.value.length < rule)
+                field.errors.push('Too short!');
+        }
+        return field;
+    }
+
+    handleFormIsValid(controls){
+        for (const [key, control] of Object.entries(controls)) {
+            if(control.errors.length > 0 || !control.touched)
+                return false;
+        }
+        return true;
+    }
+
+    renderInputs = () => {
+            return Object.keys(this.state.controls).map((key, index)=>{
+                const control = this.state.controls[key];
+                return(
+                    <InputGroup
+                        key = {key + index}
+                        type = {control.type}
+                        label={control.label}
+                        field={control.field}
+                        value={control.value}
+                        errors={control.errors}
+                        onChange={this.handleChange}
+                    />
+                ); 
+            });
+    }
 
     render(){
     return (
         <form name="form" onSubmit={this.props.handleSubmit}>
-                    <InputGroup
-                        type = {this.state.controls.email.type}
-                        label={this.state.controls.email.label}
-                        field={this.state.controls.email.field}
-                        value={this.state.controls.email.value}
-                        errors={this.state.controls.email.errors}
-                        onChange={this.handleChange}
-                    />
-
+                    {this.renderInputs()}
                     <div className="form-group">
-                        <button className="btn btn-primary">
+                        <button className="btn btn-primary" disabled={!this.state.isFormValid}>
                             Login
                         </button>
                     </div>

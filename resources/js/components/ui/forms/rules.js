@@ -1,3 +1,4 @@
 export const rules = { required: 'required', 
-                    email: 'email'
+                    email: 'email',
+                    min: 'min',
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames'
 import PropTypes from 'prop-types';
 
-const InputGroup = ({ type, label, field, value, errors, onChange, onBlur }) => {
+const InputGroup = ({ type, label, field, value, errors, onChange }) => {
     return (
         <div className="form-group">
             <label htmlFor={field}>{label}</label>
@@ -12,7 +12,6 @@ const InputGroup = ({ type, label, field, value, errors, onChange, onBlur }) => 
                 name={field}
                 value={value}
                 onChange={onChange}
-                onBlur={onBlur}
                 className={classnames('form-control', { 'is-invalid': !!errors.length })} />
 
             {!!errors.length &&
