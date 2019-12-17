@@ -6521,7 +6521,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".auth{\r\n    margin-top: 30px;\r\n}", ""]);
 
 // exports
 
@@ -76209,6 +76209,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.css */ "./resources/js/components/pages/auth/login/login.css");
 /* harmony import */ var _login_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_login_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _ui_forms_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../ui/forms/LoginForm/LoginForm */ "./resources/js/components/ui/forms/LoginForm/LoginForm.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76219,15 +76220,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -76239,76 +76239,15 @@ function (_Component) {
   _inherits(Login, _Component);
 
   function Login() {
-    var _getPrototypeOf2;
-
-    var _this;
-
     _classCallCheck(this, Login);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Login)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      email: 'a@a.ua',
-      password: '123456'
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "submitHandler", function (event) {
-      event.preventDefault();
-
-      _this.props.login(_this.state.email, _this.state.password);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "emailChange", function (event) {
-      _this.setState({
-        email: event.target.value
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "passChange", function (event) {
-      _this.setState({
-        password: event.target.value
-      });
-    });
-
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Login).apply(this, arguments));
   }
 
   _createClass(Login, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "login"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.submitHandler
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "email"
-      }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "email",
-        className: "form-control",
-        type: "text",
-        value: this.state.email,
-        onChange: this.emailChange
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "pass"
-      }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "pass",
-        className: "form-control",
-        type: "password",
-        value: this.state.password,
-        onChange: this.passChange
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "btn btn-primary",
-        onClick: this.submitHandler
-      }, "ddddd")));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Login Form"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ui_forms_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 
@@ -76475,6 +76414,17 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/ui/forms/LoginForm/LoginForm.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/ui/forms/LoginForm/LoginForm.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\resources\\js\\components\\ui\\forms\\LoginForm\\LoginForm.js: Unexpected token, expected \",\" (44:20)\n\n\u001b[0m \u001b[90m 42 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 43 | \u001b[39m        \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msetState({\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 | \u001b[39m            controls\u001b[33m.\u001b[39memail\u001b[33m.\u001b[39mvalue \u001b[33m:\u001b[39m \u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 45 | \u001b[39m        })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 46 | \u001b[39m        \u001b[90m//this.setStateByErrors(e.target.name, e.target.value);\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 47 | \u001b[39m    }\u001b[33m;\u001b[39m\u001b[0m\n    at Object.raise (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:6983:17)\n    at Object.unexpected (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:8376:16)\n    at Object.expect (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:8362:28)\n    at Object.parseObj (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9949:14)\n    at Object.parseExprAtom (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9580:28)\n    at Object.parseExprAtom (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:4097:20)\n    at Object.parseExprSubscripts (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9213:23)\n    at Object.parseMaybeUnary (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9193:21)\n    at Object.parseExprOps (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9059:23)\n    at Object.parseMaybeConditional (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9032:23)\n    at Object.parseMaybeAssign (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:8978:21)\n    at Object.parseExprListItem (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:10307:18)\n    at Object.parseCallExpressionArguments (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9410:22)\n    at Object.parseSubscript (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9318:29)\n    at Object.parseSubscripts (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9234:19)\n    at Object.parseExprSubscripts (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9223:17)\n    at Object.parseMaybeUnary (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9193:21)\n    at Object.parseExprOps (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9059:23)\n    at Object.parseMaybeConditional (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9032:23)\n    at Object.parseMaybeAssign (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:8978:21)\n    at Object.parseExpression (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:8928:23)\n    at Object.parseStatementContent (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:10795:23)\n    at Object.parseStatement (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:10666:17)\n    at Object.parseBlockOrModuleBlockBody (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:11242:25)\n    at Object.parseBlockBody (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:11229:10)\n    at Object.parseBlock (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:11213:10)\n    at Object.parseFunctionBody (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:10232:24)\n    at Object.parseArrowExpression (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:10173:10)\n    at Object.parseExprAtom (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9511:18)\n    at Object.parseExprAtom (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:4097:20)\n    at Object.parseExprSubscripts (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9213:23)\n    at Object.parseMaybeUnary (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9193:21)\n    at Object.parseExprOps (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9059:23)\n    at Object.parseMaybeConditional (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:9032:23)\n    at Object.parseMaybeAssign (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:8978:21)\n    at Object.parseClassProperty (D:\\WebDesign\\OpenServer\\OSPanel\\domains\\laravelNews\\node_modules\\@babel\\parser\\lib\\index.js:11682:25)");
+
+/***/ }),
+
 /***/ "./resources/js/global/history.js":
 /*!****************************************!*\
   !*** ./resources/js/global/history.js ***!
@@ -76578,8 +76528,10 @@ __webpack_require__.r(__webpack_exports__);
 var AppLayout = function AppLayout(_ref) {
   var children = _ref.children;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "auth"
-  }, children);
+    className: "auth row justify-content-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-4"
+  }, children));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AppLayout);
