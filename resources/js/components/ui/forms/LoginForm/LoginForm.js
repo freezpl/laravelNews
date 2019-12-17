@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import classnames from "classnames";
+import {connect} from 'react-redux';
 import InputGroup from "../../controls/InputGroup/InputGroup";
 import { rules } from "../rules";
+import {AuthActionCreator} from '../../../../store/actions/AuthActionCreator'
 
 class LoginForm extends Component {
     state = {
@@ -10,7 +11,7 @@ class LoginForm extends Component {
                 type: "text",
                 field: "email",
                 label: "Email",
-                value: "",
+                value: "a@a.ua",
                 errors: [],
                 rules: { required: true, email: true },
                 touched: false
@@ -19,14 +20,14 @@ class LoginForm extends Component {
                 type: "password",
                 field: "password",
                 label: "Password",
-                value: "",
+                value: "123",
                 errors: [],
                 rules: { required: true, min: 3 },
                 touched: false
             }
         },
         errors: {},
-        isFormValid: false
+        isFormValid: true
     };
 
     setStateByErrors = (name, value) => {
@@ -103,7 +104,7 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <form name="form" onSubmit={this.props.submitHandler} >
+            <form name="form" onSubmit={this.submitHandler} >
                 {this.renderInputs()}
                 <div className="form-group">
                     <button
@@ -116,6 +117,17 @@ class LoginForm extends Component {
             </form>
         );
     }
+
+    submitHandler = (e) => {
+        e.preventDefault();
+        this.props.login(this.state.controls.email.value, this.state.controls.password.value)
+    }
 }
 
-export default LoginForm;
+function mapDispatchtoProps(dispatch){
+    return {
+        login: (email, password) => dispatch(AuthActionCreator.login(email, password))
+    }
+}
+
+export default connect(null, mapDispatchtoProps)(LoginForm);

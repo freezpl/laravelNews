@@ -6,26 +6,15 @@ import {AuthActionCreator} from '../../../../store/actions/AuthActionCreator'
 
 class Login extends Component{
 
-    submitHandler = (e) => {
-        console.log(e);
-        e.preventDefault();
-        this.props.login('login', 'assda')
-    }
-
     render(){
         return(
             <React.Fragment>
                 <h1>Login Form</h1>
-                <LoginForm submitHandler={this.submitHandler} />
+                <LoginForm />
             </React.Fragment>
         );
     }
 }
 
-function mapDispatchtoProps(dispatch){
-    return {
-        login: (email, password) => dispatch(AuthActionCreator.login(email, password))
-    }
-}
 
-export default connect(null, mapDispatchtoProps)(Login);
+export default Login;
