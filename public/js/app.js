@@ -76272,6 +76272,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_login_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _ui_forms_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../ui/forms/LoginForm/LoginForm */ "./resources/js/components/ui/forms/LoginForm/LoginForm.js");
+/* harmony import */ var _store_actions_AuthActionCreator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../store/actions/AuthActionCreator */ "./resources/js/store/actions/AuthActionCreator.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76282,18 +76283,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
- //import {AuthActionCreator} from '../../../store/actions/authActionCreator'
+
+
+
 
 var Login =
 /*#__PURE__*/
@@ -76301,15 +76305,34 @@ function (_Component) {
   _inherits(Login, _Component);
 
   function Login() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, Login);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Login).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Login)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "submitHandler", function (e) {
+      console.log(e);
+      e.preventDefault();
+
+      _this.props.login('login', 'assda');
+    });
+
+    return _this;
   }
 
   _createClass(Login, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Login Form"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ui_forms_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Login Form"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ui_forms_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        submitHandler: this.submitHandler
+      }));
     }
   }]);
 
@@ -76317,7 +76340,10 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 function mapDispatchtoProps(dispatch) {
-  return {// login: (email, password) => dispatch(AuthActionCreator.login(email, password))
+  return {
+    login: function login(email, password) {
+      return dispatch(_store_actions_AuthActionCreator__WEBPACK_IMPORTED_MODULE_4__["AuthActionCreator"].login(email, password));
+    }
   };
 }
 
@@ -76609,10 +76635,10 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       controls: {
         email: {
-          type: 'text',
-          field: 'email',
-          label: 'Email',
-          value: '',
+          type: "text",
+          field: "email",
+          label: "Email",
+          value: "",
           errors: [],
           rules: {
             required: true,
@@ -76621,10 +76647,10 @@ function (_Component) {
           touched: false
         },
         password: {
-          type: 'password',
-          field: 'password',
-          label: 'Password',
-          value: '',
+          type: "password",
+          field: "password",
+          label: "Password",
+          value: "",
           errors: [],
           rules: {
             required: true,
@@ -76676,19 +76702,19 @@ function (_Component) {
       field.errors = []; //required
 
       if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_3__["rules"].required]) {
-        if (field.value.length == 0) field.errors.push('This field is required! ');
+        if (field.value.length == 0) field.errors.push("This field is required! ");
       } //email
 
 
       if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_3__["rules"].email]) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (!re.test(field.value.toLowerCase())) field.errors.push('Wrong email address! ');
+        if (!re.test(field.value.toLowerCase())) field.errors.push("Wrong email address! ");
       } //min
 
 
       if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_3__["rules"].min]) {
         var rule = field.rules[_rules__WEBPACK_IMPORTED_MODULE_3__["rules"].min];
-        if (field.value.length < rule) field.errors.push('Too short!');
+        if (field.value.length < rule) field.errors.push("Too short!");
       }
 
       return field;
@@ -76730,7 +76756,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         name: "form",
-        onSubmit: this.props.handleSubmit
+        onSubmit: this.props.submitHandler
       }, this.renderInputs(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -76762,6 +76788,27 @@ var rules = {
   email: 'email',
   min: 'min'
 };
+
+/***/ }),
+
+/***/ "./resources/js/global/axios.js":
+/*!**************************************!*\
+  !*** ./resources/js/global/axios.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var http = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
+  baseURL: 'https://localhost:3000/api/'
+});
+http.defaults.headers.common['Content-Type'] = 'application/json'; //http.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+
+/* harmony default export */ __webpack_exports__["default"] = (http);
 
 /***/ }),
 
@@ -77087,6 +77134,61 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/store/actions/AuthActionCreator.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/store/actions/AuthActionCreator.js ***!
+  \*********************************************************/
+/*! exports provided: AuthActionCreator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthActionCreator", function() { return AuthActionCreator; });
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionTypes */ "./resources/js/store/actions/actionTypes.js");
+/* harmony import */ var _global_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../global/axios */ "./resources/js/global/axios.js");
+/* harmony import */ var _global_history__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../global/history */ "./resources/js/global/history.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+var AuthActionCreator =
+/*#__PURE__*/
+function () {
+  function AuthActionCreator() {
+    _classCallCheck(this, AuthActionCreator);
+  }
+
+  _createClass(AuthActionCreator, null, [{
+    key: "login",
+    value: function login(email, password) {
+      return function (dispatch) {
+        _global_axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('login', {
+          email: email,
+          password: password
+        }).then(function (data) {
+          console.log(data); //localStorage.setItem('token', data.data.access_token);
+
+          dispatch({
+            type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN"],
+            value: true
+          }); //history.push('/tasks');
+        })["catch"](function (e) {
+          console.error(e);
+        });
+      };
+    }
+  }]);
+
+  return AuthActionCreator;
+}();
+
+/***/ }),
+
 /***/ "./resources/js/store/actions/actionTypes.js":
 /*!***************************************************!*\
   !*** ./resources/js/store/actions/actionTypes.js ***!
@@ -77130,6 +77232,7 @@ function AuthReducer() {
 
   switch (action.type) {
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN"]:
+      console.log("Ok");
       return _objectSpread({}, storeState, {
         isLogged: action.value
       });

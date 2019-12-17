@@ -2,6 +2,13 @@
 
 use Illuminate\Http\Request;
 
+Route::post('login', function() {
+    return  response()->json([
+            'message' => 'Create success'
+        ], 201);
+});
+
+
 Route::get('products', function () {
     return response(['Product 1', 'Product 2', 'Product 3'],200);
 });
