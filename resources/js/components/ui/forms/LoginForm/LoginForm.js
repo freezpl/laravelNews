@@ -11,7 +11,7 @@ class LoginForm extends Component {
                 type: "text",
                 field: "email",
                 label: "Email",
-                value: "a@a.ua",
+                value: "a@gmail.com",
                 errors: [],
                 rules: { required: true, email: true },
                 touched: false
@@ -20,7 +20,7 @@ class LoginForm extends Component {
                 type: "password",
                 field: "password",
                 label: "Password",
-                value: "123",
+                value: "12345",
                 errors: [],
                 rules: { required: true, min: 3 },
                 touched: false
