@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import axios from '../../../../global/axios'
 import InputGroup from "../../controls/InputGroup/InputGroup";
 import { rules } from "../rules";
-import {AuthActionCreator} from '../../../../store/actions/AuthActionCreator'
+import { AuthActionCreator } from '../../../../store/actions/AuthActionCreator'
 
 class RegisterForm extends Component {
     state = {
@@ -14,9 +14,9 @@ class RegisterForm extends Component {
                 label: "Email",
                 value: "a@gmail.com",
                 errors: [],
-                rules: { isBusy:'email' },
+                rules: { email: true, isBusy: 'email' },
                 touched: false,
-                loader:false,
+                loader: false
             },
             password: {
                 type: "password",
@@ -54,7 +54,7 @@ class RegisterForm extends Component {
         field.touched = true;
         controls[name] = field;
         let isFormValid = this.handleFormIsValid(controls);
-        this.setState(function() {
+        this.setState(function () {
             return { controls, isFormValid };
         });
     };
@@ -77,47 +77,50 @@ class RegisterForm extends Component {
             const rule = field.rules[rules.min];
             if (field.value.length < rule) field.errors.push("Too short!");
         }
-        //isBusy
-        if (!!field.rules[rules.isBusy]) {
-            const rule = field.rules[rules.isBusy];
-            const email = field.value.trim();
-            if(email.length == 0)
-                return;
-            this.switchLoader(field);
-            this.isBusy(email);
-            this.switchLoader(field);
 
-            console.log('ewr');
-            //this.switchLoader(field);
-            // axios.post('isbusy', {email}).then((data)=>{
-            //     console.log(data);
-            // }).catch((e)=>{
-            //     console.error(e);
-            // });
-            
-        }
         return field;
     };
-
-    async isBusy(email){
-        
-        axios.post('isbusy', {email}).then((data)=>{
-            console.log(data);
-        }).catch((e)=>{
-            console.error(e);
-        });
-    }
-
-    switchLoader(field){
-        field.loader = !field.loader;
-        
-    }
 
     handleFormIsValid(controls) {
         for (const [key, control] of Object.entries(controls)) {
             if (control.errors.length > 0 || !control.touched) return false;
         }
         return true;
+    }
+
+    checkIsBusy = (e) => {
+        const name = e.target.name;
+        if (name != 'email')
+            return;
+
+        const controls = { ...this.state.controls };
+        let field = { ...controls[name] };
+        if (field.errors.length > 0)
+            return;
+
+        field.loader = true;
+        controls[name] = field;
+        this.setState(() => {
+            return { controls };
+        });
+
+        axios.post('isbusy', { email: field.value }).then((data) => {
+            if (data.data.length > 0) {
+                field.errors.push('Email is busy!');
+                controls[name] = field;
+                this.setState(() => {
+                    return { controls, isFormValid : false };
+                })
+            }
+        }).catch((e) => {
+            console.error(e);
+        }).finally(() => {
+            field.loader = false;
+            controls[name] = field;
+            this.setState(() => {
+                return { controls };
+            })
+        });
     }
 
     renderInputs = () => {
@@ -132,6 +135,7 @@ class RegisterForm extends Component {
                     value={control.value}
                     errors={control.errors}
                     loader={control.loader}
+                    onBlur={this.checkIsBusy}
                     onChange={this.handleChange}
                 />
             );
@@ -160,7 +164,7 @@ class RegisterForm extends Component {
     }
 }
 
-function mapDispatchtoProps(dispatch){
+function mapDispatchtoProps(dispatch) {
     return {
         login: (email, password) => dispatch(AuthActionCreator.login(email, password))
     }

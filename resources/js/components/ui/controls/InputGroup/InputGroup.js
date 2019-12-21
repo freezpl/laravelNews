@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames'
 import PropTypes from 'prop-types';
 
-const InputGroup = ({ type, label, field, value, errors, loader, onChange }) => {
+const InputGroup = ({ type, label, field, value, errors, loader, onChange, onBlur }) => {
 
     function renderLoader(loader) {
         if (loader)
@@ -23,6 +23,7 @@ const InputGroup = ({ type, label, field, value, errors, loader, onChange }) => 
                 name={field}
                 value={value}
                 onChange={onChange}
+                onBlur={onBlur}
                 className={classnames('form-control', 'col-sm-9', { 'is-invalid': !!errors.length })} />
             {renderLoader(loader)}
             {!!errors.length &&

@@ -138,7 +138,8 @@ var InputGroup = function InputGroup(_ref) {
       value = _ref.value,
       errors = _ref.errors,
       loader = _ref.loader,
-      onChange = _ref.onChange;
+      onChange = _ref.onChange,
+      onBlur = _ref.onBlur;
 
   function renderLoader(loader) {
     if (loader) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -162,6 +163,7 @@ var InputGroup = function InputGroup(_ref) {
     name: field,
     value: value,
     onChange: onChange,
+    onBlur: onBlur,
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('form-control', 'col-sm-9', {
       'is-invalid': !!errors.length
     })
@@ -272,6 +274,7 @@ function (_Component) {
           value: "a@gmail.com",
           errors: [],
           rules: {
+            email: true,
             isBusy: 'email'
           },
           touched: false,
@@ -346,29 +349,40 @@ function (_Component) {
       if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].min]) {
         var rule = field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].min];
         if (field.value.length < rule) field.errors.push("Too short!");
-      } //isBusy
-
-
-      if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].isBusy]) {
-        var _rule = field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].isBusy];
-        var email = field.value.trim();
-        if (email.length == 0) return;
-
-        _this.switchLoader(field);
-
-        _this.isBusy(email);
-
-        _this.switchLoader(field);
-
-        console.log('ewr'); //this.switchLoader(field);
-        // axios.post('isbusy', {email}).then((data)=>{
-        //     console.log(data);
-        // }).catch((e)=>{
-        //     console.error(e);
-        // });
       }
 
       return field;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "checkIsBusy", function (e) {
+      var name = e.target.name;
+      if (name != 'email') return;
+
+      var controls = _objectSpread({}, _this.state.controls);
+
+      var field = _objectSpread({}, controls[name]);
+
+      field.loader = true;
+      controls[name] = field;
+
+      _this.setState(function () {
+        return {
+          controls: controls
+        };
+      });
+
+      setTimeout(function () {
+        //const controls = { ...this.state.controls };
+        // let field = { ...controls[name] };
+        field.loader = false;
+        controls[name] = field;
+
+        _this.setState(function () {
+          return {
+            controls: controls
+          };
+        });
+      }, 5000);
     });
 
     _defineProperty(_assertThisInitialized(_this), "renderInputs", function () {
@@ -382,6 +396,7 @@ function (_Component) {
           value: control.value,
           errors: control.errors,
           loader: control.loader,
+          onBlur: _this.checkIsBusy,
           onChange: _this.handleChange
         });
       });

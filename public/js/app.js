@@ -76556,7 +76556,7 @@ var Login = react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(function () {
   return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../components/pages/auth/login/Login */ "./resources/js/components/pages/auth/login/Login.js"));
 });
 var Register = react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../components/pages/auth/register/Register */ "./resources/js/components/pages/auth/register/Register.js"));
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../components/pages/auth/register/Register */ "./resources/js/components/pages/auth/register/Register.js"));
 });
 var NewsList = react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(function () {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/pages/common/news/NewsList */ "./resources/js/components/pages/common/news/NewsList.js"));

@@ -201,7 +201,8 @@ var InputGroup = function InputGroup(_ref) {
       value = _ref.value,
       errors = _ref.errors,
       loader = _ref.loader,
-      onChange = _ref.onChange;
+      onChange = _ref.onChange,
+      onBlur = _ref.onBlur;
 
   function renderLoader(loader) {
     if (loader) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -225,6 +226,7 @@ var InputGroup = function InputGroup(_ref) {
     name: field,
     value: value,
     onChange: onChange,
+    onBlur: onBlur,
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('form-control', 'col-sm-9', {
       'is-invalid': !!errors.length
     })

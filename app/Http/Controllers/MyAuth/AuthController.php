@@ -4,13 +4,17 @@ namespace App\Http\Controllers\MyAuth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class AuthController extends Controller
 {
     public $loginAfterSignUp = true;
 
     public function isBusy(Request $request){
-      return 'true';
+      $email = $request->email;
+      $user = User::where('email', $email)->first();
+
+      return $user->email ?? null;
     }
 
     public function register(Request $request)
