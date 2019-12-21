@@ -6,6 +6,6 @@ let http = axios.create({
   });
 
   http.defaults.headers.common['Content-Type'] = 'application/json';
-  http.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+ // http.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 
 export default http;

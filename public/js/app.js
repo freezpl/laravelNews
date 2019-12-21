@@ -76555,6 +76555,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var Login = react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(function () {
   return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../components/pages/auth/login/Login */ "./resources/js/components/pages/auth/login/Login.js"));
 });
+var Register = react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(function () {
+  return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../components/pages/auth/register/Register */ "./resources/js/components/pages/auth/register/Register.js"));
+});
 var NewsList = react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(function () {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/pages/common/news/NewsList */ "./resources/js/components/pages/common/news/NewsList.js"));
 });
@@ -76587,6 +76590,12 @@ function (_Component) {
         component: Login,
         layout: _layouts_AuthLayout_AuthLayout__WEBPACK_IMPORTED_MODULE_3__["default"],
         title: "Login to system"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AppRoute__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        path: "/register",
+        exact: true,
+        component: Register,
+        layout: _layouts_AuthLayout_AuthLayout__WEBPACK_IMPORTED_MODULE_3__["default"],
+        title: "Register page"
       })));
     }
   }]);

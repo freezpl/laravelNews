@@ -1,71 +1,9 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./node_modules/classnames/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/classnames/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-	'use strict';
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg) && arg.length) {
-				var inner = classNames.apply(null, arg);
-				if (inner) {
-					classes.push(inner);
-				}
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if ( true && module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-			return classNames;
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {}
-}());
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/pages/auth/login/login.css":
-/*!********************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/pages/auth/login/login.css ***!
-  \********************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/pages/auth/register/register.css":
+/*!**************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/pages/auth/register/register.css ***!
+  \**************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -74,17 +12,17 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "  \r\n.login{\r\n    background: rgb(104, 169, 255);\r\n}", ""]);
+exports.push([module.i, "  \r\n.register{\r\n    background: rgb(255, 176, 186);\r\n}", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/auth/login/Login.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/components/pages/auth/login/Login.js ***!
-  \***********************************************************/
+/***/ "./resources/js/components/pages/auth/register/Register.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/pages/auth/register/Register.js ***!
+  \*****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -92,9 +30,9 @@ exports.push([module.i, "  \r\n.login{\r\n    background: rgb(104, 169, 255);\r\
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _login_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.css */ "./resources/js/components/pages/auth/login/login.css");
-/* harmony import */ var _login_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_login_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ui_forms_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../ui/forms/LoginForm/LoginForm */ "./resources/js/components/ui/forms/LoginForm/LoginForm.js");
+/* harmony import */ var _register_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./register.css */ "./resources/js/components/pages/auth/register/register.css");
+/* harmony import */ var _register_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_register_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ui_forms_RegisterForm_RegisterForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../ui/forms/RegisterForm/RegisterForm */ "./resources/js/components/ui/forms/RegisterForm/RegisterForm.js");
 /* harmony import */ var _store_actions_AuthActionCreator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../store/actions/AuthActionCreator */ "./resources/js/store/actions/AuthActionCreator.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -119,41 +57,40 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Login =
+var Register =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Login, _Component);
+  _inherits(Register, _Component);
 
-  function Login(props) {
-    _classCallCheck(this, Login);
+  function Register() {
+    _classCallCheck(this, Register);
 
-    console.log('Login');
-    return _possibleConstructorReturn(this, _getPrototypeOf(Login).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Register).apply(this, arguments));
   }
 
-  _createClass(Login, [{
+  _createClass(Register, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Login Form"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ui_forms_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Registration"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ui_forms_RegisterForm_RegisterForm__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
-  return Login;
+  return Register;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Login);
+/* harmony default export */ __webpack_exports__["default"] = (Register);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/auth/login/login.css":
-/*!************************************************************!*\
-  !*** ./resources/js/components/pages/auth/login/login.css ***!
-  \************************************************************/
+/***/ "./resources/js/components/pages/auth/register/register.css":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/pages/auth/register/register.css ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/postcss-loader/src??ref--6-2!./login.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/pages/auth/login/login.css");
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/postcss-loader/src??ref--6-2!./register.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/pages/auth/register/register.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -249,21 +186,26 @@ var InputGroup = function InputGroup(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/ui/forms/LoginForm/LoginForm.js":
-/*!*****************************************************************!*\
-  !*** ./resources/js/components/ui/forms/LoginForm/LoginForm.js ***!
-  \*****************************************************************/
+/***/ "./resources/js/components/ui/forms/RegisterForm/RegisterForm.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/ui/forms/RegisterForm/RegisterForm.js ***!
+  \***********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _controls_InputGroup_InputGroup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../controls/InputGroup/InputGroup */ "./resources/js/components/ui/controls/InputGroup/InputGroup.js");
-/* harmony import */ var _rules__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../rules */ "./resources/js/components/ui/forms/rules.js");
-/* harmony import */ var _store_actions_AuthActionCreator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../store/actions/AuthActionCreator */ "./resources/js/store/actions/AuthActionCreator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _global_axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../global/axios */ "./resources/js/global/axios.js");
+/* harmony import */ var _controls_InputGroup_InputGroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../controls/InputGroup/InputGroup */ "./resources/js/components/ui/controls/InputGroup/InputGroup.js");
+/* harmony import */ var _rules__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../rules */ "./resources/js/components/ui/forms/rules.js");
+/* harmony import */ var _store_actions_AuthActionCreator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../store/actions/AuthActionCreator */ "./resources/js/store/actions/AuthActionCreator.js");
+
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -302,23 +244,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var LoginForm =
+
+var RegisterForm =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(LoginForm, _Component);
+  _inherits(RegisterForm, _Component);
 
-  function LoginForm() {
+  function RegisterForm() {
     var _getPrototypeOf2;
 
     var _this;
 
-    _classCallCheck(this, LoginForm);
+    _classCallCheck(this, RegisterForm);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(LoginForm)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RegisterForm)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       controls: {
@@ -329,10 +272,10 @@ function (_Component) {
           value: "a@gmail.com",
           errors: [],
           rules: {
-            required: true,
-            email: true
+            isBusy: 'email'
           },
-          touched: false
+          touched: false,
+          loader: false
         },
         password: {
           type: "password",
@@ -389,20 +332,40 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "handleErrors", function (field) {
       field.errors = []; //required
 
-      if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_3__["rules"].required]) {
+      if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].required]) {
         if (field.value.length == 0) field.errors.push("This field is required! ");
       } //email
 
 
-      if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_3__["rules"].email]) {
+      if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].email]) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!re.test(field.value.toLowerCase())) field.errors.push("Wrong email address! ");
       } //min
 
 
-      if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_3__["rules"].min]) {
-        var rule = field.rules[_rules__WEBPACK_IMPORTED_MODULE_3__["rules"].min];
+      if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].min]) {
+        var rule = field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].min];
         if (field.value.length < rule) field.errors.push("Too short!");
+      } //isBusy
+
+
+      if (!!field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].isBusy]) {
+        var _rule = field.rules[_rules__WEBPACK_IMPORTED_MODULE_5__["rules"].isBusy];
+        var email = field.value.trim();
+        if (email.length == 0) return;
+
+        _this.switchLoader(field);
+
+        _this.isBusy(email);
+
+        _this.switchLoader(field);
+
+        console.log('ewr'); //this.switchLoader(field);
+        // axios.post('isbusy', {email}).then((data)=>{
+        //     console.log(data);
+        // }).catch((e)=>{
+        //     console.error(e);
+        // });
       }
 
       return field;
@@ -411,13 +374,14 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "renderInputs", function () {
       return Object.keys(_this.state.controls).map(function (key, index) {
         var control = _this.state.controls[key];
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_controls_InputGroup_InputGroup__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_controls_InputGroup_InputGroup__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: key + index,
           type: control.type,
           label: control.label,
           field: control.field,
           value: control.value,
           errors: control.errors,
+          loader: control.loader,
           onChange: _this.handleChange
         });
       });
@@ -432,7 +396,34 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(LoginForm, [{
+  _createClass(RegisterForm, [{
+    key: "isBusy",
+    value: function isBusy(email) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function isBusy$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _global_axios__WEBPACK_IMPORTED_MODULE_3__["default"].post('isbusy', {
+                email: email
+              }).then(function (data) {
+                console.log(data);
+              })["catch"](function (e) {
+                console.error(e);
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      });
+    }
+  }, {
+    key: "switchLoader",
+    value: function switchLoader(field) {
+      field.loader = !field.loader;
+    }
+  }, {
     key: "handleFormIsValid",
     value: function handleFormIsValid(controls) {
       for (var _i = 0, _Object$entries = Object.entries(controls); _i < _Object$entries.length; _i++) {
@@ -448,30 +439,30 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
         name: "form",
         onSubmit: this.submitHandler
-      }, this.renderInputs(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.renderInputs(), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         className: "btn btn-primary",
         disabled: !this.state.isFormValid
       }, "Login")));
     }
   }]);
 
-  return LoginForm;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+  return RegisterForm;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 function mapDispatchtoProps(dispatch) {
   return {
     login: function login(email, password) {
-      return dispatch(_store_actions_AuthActionCreator__WEBPACK_IMPORTED_MODULE_4__["AuthActionCreator"].login(email, password));
+      return dispatch(_store_actions_AuthActionCreator__WEBPACK_IMPORTED_MODULE_6__["AuthActionCreator"].login(email, password));
     }
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mapDispatchtoProps)(LoginForm));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mapDispatchtoProps)(RegisterForm));
 
 /***/ }),
 

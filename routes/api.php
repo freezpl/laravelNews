@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 
 Route::post('login', 'MyAuth\AuthController@login');
+Route::post('isbusy', 'MyAuth\AuthController@isBusy');
 
 Route::get('news', 'Common\NewsController@index');
 
