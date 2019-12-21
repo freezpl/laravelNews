@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     public function articles(){
-        return $this->morphToMany('App\Article');
+        return $this->belongsToMany('App\Article');
     }
 }

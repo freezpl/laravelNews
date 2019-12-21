@@ -6,6 +6,11 @@ import {AuthActionCreator} from '../../../../store/actions/AuthActionCreator'
 
 class Login extends Component{
 
+    constructor(props){
+        console.log('Login');
+        super(props);
+    }
+
     render(){
         return(
             <React.Fragment>

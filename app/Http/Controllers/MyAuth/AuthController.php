@@ -9,6 +9,10 @@ class AuthController extends Controller
 {
     public $loginAfterSignUp = true;
 
+    public function checkEmail(){
+      return true;
+    }
+
     public function register(Request $request)
     {
       $user = User::create([

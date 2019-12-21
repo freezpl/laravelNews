@@ -11,6 +11,6 @@ class Article extends Model
     }
 
     public function tags(){
-        return $this->morphToMany('App\Tag');
+        return $this->belongsToMany('App\Tag');
     }
 }
